@@ -1,0 +1,35 @@
+{% set version = "0.01" %}
+{% set github = "https://github.com/jespermaag/gganatogram" %}
+
+package:
+  name: r-gganatogram
+  version: "{{ version }}"
+
+source:
+  url: "{{ github }}/archive/F1000V2.tar.gz"
+  sha256: e27fdcf658f0f918d924d03dbdacee481c2c0eabb86cabb415cff40dae0983ea
+  
+build:
+  number: 0
+  noarch: generic
+
+requirements:
+  host:
+    - r-base >=4
+  run:
+    - r-base >=4
+    - r-ggplot2
+    - r-ggpolypath
+
+test:
+  commands:
+    - $R -e "library('oncoEnrichR')"
+
+about:
+  home: https://github.com/jespermaag/gganatogram
+  dev_url: https://github.com/jespermaag/gganatogram
+  license: GPL-2.0-or-later
+  license_file: LICENSE
+  license_family: GPL
+  summary: Create anatogram images for different organisms
+
